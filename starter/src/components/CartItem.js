@@ -7,6 +7,10 @@ const CartItem = ({ id, img, title, price, amount }) => {
 
 	const dispatch = useDispatch()
 
+	const handleRemoveItem = (id) => {
+		dispatch(removeItem(id))
+	}
+
 	const handleIncrease = (id) => {
 		dispatch(increase(id))
 	}
@@ -25,7 +29,7 @@ const CartItem = ({ id, img, title, price, amount }) => {
 			<div>
 				<h4>{title}</h4>
 				<h4 className="item-price">{price}</h4>
-				<button className="remove-btn" onClick={() => dispatch(removeItem(id))}>remove</button>
+				<button className="remove-btn" onClick={() => handleRemoveItem(id)}>remove</button>
 			</div>
 			<div>
 				<button className="amount-btn" onClick={() => handleIncrease(id)}>
