@@ -7,6 +7,18 @@ const CartItem = ({ id, img, title, price, amount }) => {
 
 	const dispatch = useDispatch()
 
+	const handleIncrease = (id) => {
+		dispatch(increase(id))
+	}
+
+	const handleDecrease = (id, amount) => {
+		if (amount === 1) {
+			dispatch(removeItem(id))
+			return
+		}
+		dispatch(decrease(id))
+	}
+
 	return (
 		<article className="cart-item">
 			<img src={img} alt={title} />
@@ -16,11 +28,11 @@ const CartItem = ({ id, img, title, price, amount }) => {
 				<button className="remove-btn" onClick={() => dispatch(removeItem(id))}>remove</button>
 			</div>
 			<div>
-				<button className="amount-btn" onClick={() => dispatch(changeAmount({ id: id, computation: 'increase'}))}>
+				<button className="amount-btn" onClick={() => handleIncrease(id)}>
 					<ChevronUp />
 				</button>
 				<p className="amount">{amount}</p>
-				<button className="amount-btn" onClick={() => dispatch(changeAmount({ id: id, computation: 'decrease'}))}>
+				<button className="amount-btn" onClick={() => handleDecrease(id, amount)}>
 					<ChevronDown />
 				</button>
 			</div>
