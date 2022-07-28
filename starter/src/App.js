@@ -7,6 +7,8 @@ import Navbar from "./components/Navbar";
 import CartContainer from "./components/CartContainer";
 
 function App() {
+	const { isOpen } = useSelector(store => store.modal)
+
 	const { cartItems } = useSelector((store) => store.cart)
 	const dispatch = useDispatch()
 
@@ -16,7 +18,7 @@ function App() {
 
 	return (
 		<main>
-			<Modal />
+			{isOpen && <Modal />}
 			<Navbar />
 			<CartContainer />
 		</main>
