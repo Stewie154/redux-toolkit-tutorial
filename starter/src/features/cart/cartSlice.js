@@ -27,10 +27,6 @@ const cartSlice = createSlice({
 			let cartItem = state.cartItems.find(item => item.id === action.payload)
 			cartItem.amount -= 1
 		},
-		changeAmount: (state, { payload }) => {
-			let cartItem = state.cartItems.find(item => item.id === payload.id)
-			cartItem.amount = payload.computation === 'increase' ? cartItem.amount + 1 : cartItem.amount - 1
-		},
 		calculateTotals: (state) => {
 			let amount = 0
 			let total = 0
@@ -46,6 +42,6 @@ const cartSlice = createSlice({
 
 console.log(cartSlice)
 
-export const { clearCart, removeItem, increase, decrease, changeAmount, calculateTotals } = cartSlice.actions
+export const { clearCart, removeItem, increase, decrease, calculateTotals } = cartSlice.actions
 
 export default cartSlice.reducer

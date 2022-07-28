@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux'
 import { toggleModal } from '../features/modal/modalSlice'
 import { clearCart } from '../features/cart/cartSlice'
