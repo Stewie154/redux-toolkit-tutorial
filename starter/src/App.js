@@ -13,7 +13,7 @@ function App() {
 	const dispatch = useDispatch()
 
 	useEffect(() => {
-		dispatch(fetchItems())
+		dispatch(fetchItems('this is something that could be passed in to the async function call'))
 	}, [])
 
 	useEffect(() => {
