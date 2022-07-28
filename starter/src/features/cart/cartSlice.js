@@ -12,8 +12,8 @@ const url = 'https://course-api.com/react-useReducer-cart-project'
 
 export const fetchItems = createAsyncThunk('cart/fetchCartItems', () => {
 	return fetch(url)
-			.then(res => res.json())
-			.catch(err => console.log(err))
+		.then(res => res.json())
+		.catch(err => console.log(err))
 })
 
 const cartSlice = createSlice({
@@ -48,9 +48,10 @@ const cartSlice = createSlice({
 	},
 	extraReducers: {
 		[fetchItems.pending]: (state) => {
-			state.isLoading = true 
+			state.isLoading = true
 		},
 		[fetchItems.fulfilled]: (state, action) => {
+			console.log(action)
 			state.isLoading = false;
 			state.cartItems = action.payload
 		},
